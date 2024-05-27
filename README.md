@@ -15,16 +15,19 @@ To initiate the frontend for the first time, follow the next steps:
 1. If you haven't already [download Docker Desktop](https://www.docker.com/products/docker-desktop).
 2. Clone this repository to your local machine.
 3. Navigate to the cloned repository directory in your CMD or terminal.
-4. Execute the following command:
+4. Execute the following commands:
 
 ```bash
-npm install
+docker build -t frontend-image .
+```
+```bash
+docker run -p 5173:5173 frontend-image
 ```
 
-For subsequent executions, utilize this command:
+For subsequent executions, utilizing this command is enough:
 
 ```bash
-npm start
+docker run -p 5173:5173 frontend-image
 ```
 
 ## Usage
