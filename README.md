@@ -6,6 +6,8 @@ This repository contains the frontend-side for the TodoList React application. I
 
 This application provides a user friendly interface for managing tasks, including functionalities such as creating, editing, deleting, and retrieving tasks from the backend API.
 
+Additionally, the home page includes a percentile tasks graph feature. This graph visualizes tasks due time.
+
 ## Getting Started
 
 To initiate the frontend for the first time, follow the next steps:
@@ -28,17 +30,3 @@ npm start
 ## Usage
 
 Once the frontend application is running, you can access it in your web browser by navigating [here](http://localhost:5173).
-
-
-
-### Percentile Tasks Graph
-
-Additionally, the frontend application includes a percentile tasks graph feature. This graph visualizes task completion rates over time, providing valuable insights into task management trends.
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
