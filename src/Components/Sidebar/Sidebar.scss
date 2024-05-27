@@ -1,39 +1,32 @@
-.sidebar-container {
+.sidebar {
+    position: relative;
+    background: linear-gradient(#73BBBF, #587EA1, #3F5C8D, #1B2E71);
+    border-radius: 1em;
+    height: calc(100vh - 3em);
+    margin: 1.5em;
     padding: 1em;
-    padding-right: 1.5em;
-    .sidebar {
-        position: relative;
-        background: linear-gradient(#73BBBF, #587EA1, #3F5C8D, #1B2E71);
-        border-radius: 1em;
-        width: 4.5em;
-        height: calc(100vh - 3em);
-        // margin-inline-start: 1em;
-        // margin-block-start: 1em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        .react-icon {
-            margin: 0;
+    .react-icon {
+        font-size: 2.5em;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        transform-origin: center;
 
-            font-size: 2.5em;
-            color: rgb(255, 255, 255);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            transform-origin: center;
-
-            &:hover {
-                transform: scale(1.1);
-            }
-
+        &:hover {
+            transform: scale(1.1);
         }
 
-        .logout-button {
-            margin-top: 1em;
-        }
+    }
 
-        .add-task-button {
-            margin-top: 0.5em;
-        }
+    .logout-button {
+        margin-top: 1em;
+    }
+
+    .add-task-button {
+        margin-top: 0.5em;
     }
 }

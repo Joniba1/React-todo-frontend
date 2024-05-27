@@ -94,6 +94,48 @@ const TodoTasks: React.FC<TasksProps> = ({
     return deadlineDate < currentDate;
   };
 
+  // return (
+  //   <>
+  //     <div className="columns-container">
+  //       <div className='tasks-header'>
+  //         <h1>To Do</h1>
+  //         <h1 className='tasks-count'>{todoTasks.length}</h1>
+  //       </div>
+  //       <div className="tasks-container">
+  //         {[0, 1].map((column) => (
+  //           <div key={column} className={`column column-${column}`}>
+  //             {todoTasks.filter((_, index) => index % 2 === column).map((task, index) => {
+  //               const deadlinePassed = task.deadline && didDeadlinePass(task.deadline);
+  //               return (
+  //                 <div key={index} className="task">
+
+  //                   <p className="task-title" onClick={() => handleEdit(task.title, task.description, task.deadline)}>{task.title}</p>
+  //                   <p className="task-description">{task.description}</p>
+  //                   {task.deadline && (
+  //                     <p className={`due-text ${deadlinePassed ? 'passed' : ''}`}>Due: {new Date(task.deadline).toLocaleDateString()}</p>
+  //                   )}
+
+  //                   <p className='sdf'>sdf</p>
+
+  //                   <div className='task-utilities'>
+  //                     {/* <p className="deleteButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Delete" onClick={() => handleDelete(task.title, task.deadline)}><FaRegTrashAlt /></p>
+  //                     <p className="setRelevanceButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title, task.deadline)}><TbNotesOff /></p>
+  //                     <p className="setCompletedButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Complete!" onClick={() => handleSetCompleted(task.title, task.deadline)}><GrCompliance /></p>
+  //                    */}
+  //                     {/* <p>sdf</p> */}
+  //                   </div>
+
+  //                 </div>
+  //               );
+  //             })}
+  //           </div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //     <Tooltip id="tooltipTodo" place="bottom" />
+  //   </>
+  // );
+
   return (
     <>
       <div className="columns-container">
@@ -108,16 +150,21 @@ const TodoTasks: React.FC<TasksProps> = ({
                 const deadlinePassed = task.deadline && didDeadlinePass(task.deadline);
                 return (
                   <div key={index} className="task">
-                    <p className="task-title" onClick={() => handleEdit(task.title, task.description, task.deadline)}>{task.title}</p>
-                    <p className="task-description">{task.description}</p>
-                    {task.deadline && (
-                      <p className={`due-text ${deadlinePassed ? 'passed' : ''}`}>Due: {new Date(task.deadline).toLocaleDateString()}</p>
-                    )}
-                    <div className='task-utilities'>
-                      <p className="deleteButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Delete" onClick={() => handleDelete(task.title, task.deadline)}><FaRegTrashAlt /></p>
-                      <p className="setRelevanceButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title, task.deadline)}><TbNotesOff /></p>
-                      <p className="setCompletedButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Complete!" onClick={() => handleSetCompleted(task.title, task.deadline)}><GrCompliance /></p>
+                    <div className="task-content">
+                      <p className="task-title" onClick={() => handleEdit(task.title, task.description, task.deadline)}>{task.title}</p>
+                      <p className="task-description">{task.description}</p>
+
+                      <div className='task-utilities'>
+                        <p className="deleteButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Delete" onClick={() => handleDelete(task.title, task.deadline)}><FaRegTrashAlt /></p>
+                        <p className="setRelevanceButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title, task.deadline)}><TbNotesOff /></p>
+                        <p className="setCompletedButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Complete!" onClick={() => handleSetCompleted(task.title, task.deadline)}><GrCompliance /></p>
+                      </div>
+                      {task.deadline && (
+                        <p className={`due-text ${deadlinePassed ? 'passed' : ''}`}>Due: {new Date(task.deadline).toLocaleDateString()}</p>
+                      )}
+
                     </div>
+
                   </div>
                 );
               })}
@@ -128,6 +175,9 @@ const TodoTasks: React.FC<TasksProps> = ({
       <Tooltip id="tooltipTodo" place="bottom" />
     </>
   );
+
+
+
 };
 
 export default TodoTasks;
