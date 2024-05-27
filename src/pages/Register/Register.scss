@@ -1,0 +1,46 @@
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+
+.register-container {
+    margin-inline-start: 63em;
+}
+
+.back-rect-register {
+    margin-left: -1em;
+}
+
+.error-message-right {
+    display: flex;
+    align-items: center;
+    background-color: #f6dbde;
+    width: fit-content;
+    justify-content: center;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    z-index: 2000;
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    transform: translateX(-100%);
+    animation: slideInRight 0.2s forwards;
+
+    p {
+        margin: 0;
+        margin-left: 0.5em;
+        font-family: 'Roboto';
+        font-weight: 500;
+        font-size: 1.5em;
+    }
+
+    svg {
+        font-size: 1.5em;
+        color: red;
+    }
+}

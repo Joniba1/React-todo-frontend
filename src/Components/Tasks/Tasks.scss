@@ -1,0 +1,211 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RedditSans';
+  src: url('../assets/RedditSans.ttf') format('truetype');
+}
+
+body {
+  background: rgb(239, 239, 239);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.columns-container {
+  position: relative;
+  padding: 2em 2em 0 0em;
+  z-index: 0;
+  width: fit-content;
+  height: fit-content;
+
+  .tasks-header {
+    position: relative;
+    border-radius: 1em;
+    font-size: 0.7em;
+    height: 4em;
+    text-align: left;
+    width: 66em;
+    background-color: #c1c9c5;
+    display: flex;
+    padding-left: 1em;
+    align-items: center;
+    font-family: 'RedditSans';
+
+    .tasks-count {
+      position: absolute;
+      right: 1em;
+      color: rgb(0, 0, 0);
+    }
+  }
+}
+
+.tasks-container {
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  display: flex;
+  position: relative;
+  height: fit-content;
+  max-height: calc(100vh - 15em);
+  width: fit-content;
+  overflow: auto;
+  // margin-left: 1em;
+
+  .column-1 {
+    margin-left: 1em;
+  }
+
+  .column {
+    // margin-top: 1em;
+    // margin-left: 1em;
+
+
+    .task {
+      z-index: 0;
+      padding: 1em;
+      margin-bottom: 1em;
+      background-color: #ffffff;
+      overflow: hidden;
+      width: 21em;
+      border-radius: 1em;
+      box-shadow: rgba(50, 50, 93, 0.1) 0px 4px 8px -2px, rgba(0, 0, 0, 0.1) 0px 3px 6px -3px;
+
+      .task-title {
+        cursor: pointer;
+        font-family: 'Roboto';
+        margin: 0;
+        background-color: #ffffff;
+        font-weight: 450;
+        height: auto;
+        border: none;
+        align-items: center;
+        line-height: 1.2;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+        font-size: 1.5em;
+        word-wrap: break-word;
+      }
+
+      .task-description {
+        position: relative;
+        background-color: #ffffff;
+        color: #818285;
+        font-weight: 500;
+        font-size: 1.2em;
+        height: auto;
+        border: none;
+        block-size: auto;
+        overflow: hidden;
+        margin: 0em;
+        padding-top: 0.3em;
+        max-height: 7em;
+        word-wrap: break-word;
+        font-family: 'Roboto';
+      }
+
+      .due-text {
+        position: absolute;
+        display: inline-block;
+        font-family: 'Inter';
+        font-size: 1.2em;
+        font-weight: 500;
+        color: #4e5058;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        margin-block-start: 1em;
+        margin-inline-start: 0em;
+      }
+
+      .due-text.passed {
+        color: red;
+      }
+
+      .task-utilities {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .deleteButton {
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        width: 1em;
+        margin-inline-start: 19em;
+        cursor: pointer;
+
+        svg {
+          fill: #4e5058;
+          margin-top: 1em;
+          width: 1.5em;
+          height: 1.5em;
+
+          &:hover {
+            fill: red;
+          }
+        }
+      }
+
+      .setRelevanceButton {
+        position: absolute;
+        color: #4e5058;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        width: 1em;
+        cursor: pointer;
+        margin-inline-start: 17em;
+
+        svg {
+          margin-top: 1.2em;
+          width: 1.6em;
+          height: 1.6em;
+
+          &:hover {
+            color: orange;
+          }
+        }
+      }
+
+      .setCompletedButton {
+        color: #4e5058;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        width: 1em;
+        cursor: pointer;
+        margin-inline-start: 15em;
+
+        svg {
+          margin-top: 1.1em;
+          width: 1.4em;
+          height: 1.4em;
+
+          &:hover {
+            color: rgb(29, 190, 26);
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
+
+#tooltipTodo,
+#tooltipCompleted,
+#tooltipIrrelevant {
+  font-family: 'Roboto';
+  background-color: #4b4b4b;
+  border-radius: 0.5em;
+}

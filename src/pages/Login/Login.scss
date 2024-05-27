@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../../../assets/Inter.ttf') format('truetype');
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.back-rect {
+    width: 50vw;
+    height: 100vh;
+    background: linear-gradient(170deg, #6BA7E3, #4D85C5, #366B9F, #1F507A, #133958, #0C2A46, #082033, #041119);
+    position: fixed;
+    overflow: hidden;
+    margin-inline-start: 50%;
+    top: 0;
+    padding: 0;
+}
+
+.sign-container {
+    position: absolute;
+    margin-inline-start: 8em;
+    margin-block-start: 6em;
+    overflow: hidden;
+
+    .sign-header {
+        position: relative;
+        font-family: 'Inter';
+
+        h2 {
+            font-size: 4em;
+            margin: 0;
+        }
+
+        p {
+            position: relative;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #877E7E;
+            margin-bottom: 2em;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .user-credentials-textarea {
+            display: flex;
+            align-items: center;
+            width: 23em;
+            height: 1em;
+            white-space: nowrap;
+            border-radius: 6em;
+            outline: none;
+            border: none;
+            resize: none;
+            line-height: 1em;
+            padding: 1em;
+            padding-right: 0em;
+            font-size: 1.5em;
+            margin-bottom: 2em;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .sign-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .sign-button {
+                width: 24em;
+                height: 3em;
+                font-size: 1.5em;
+                background-color: #82F04F;
+                border-radius: 6em;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+            .redirect {
+                width: fit-content;
+                position: relative;
+                padding: 1.5em;
+                font-size: 1.3em;
+                font-family: 'Inter';
+                font-weight: 600;
+
+                span {
+                    color: #0061D2;
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .error-message {
+            display: flex;
+            align-items: center;
+            background-color: #f6dbde;
+            width: fit-content;
+            justify-content: center;
+            padding: 1em 2em;
+            border-radius: 0.5em;
+            position: fixed;
+            top: 1em;
+            left: 1em;
+            animation: slideInLeft 0.2s forwards;
+            transform: translateX(-100%);
+
+            p {
+                margin: 0;
+                margin-left: 0.5em;
+                font-family: 'Roboto';
+                font-weight: 500;
+                font-size: 1.5em;
+            }
+
+            svg {
+                font-size: 1.5em;
+                color: red;
+            }
+        }
+    }
+}
+
