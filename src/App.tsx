@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import './App.scss';
 
 //Components
 import Login from './pages/Login/Login.tsx';

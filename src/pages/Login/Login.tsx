@@ -72,6 +72,12 @@ const Login = () => {
 
   return (
     <>
+      {errorMessage && (
+            <div className='error-message sign'>
+              <MdError />
+              <p>{errorMessage}</p>
+            </div>
+          )}
       <div className='back-rect'></div>
 
       <div className='sign-container'>
@@ -106,12 +112,7 @@ const Login = () => {
             </div>
           </div>
 
-          {errorMessage && (
-            <div className='error-message sign'>
-              <MdError />
-              <p>{errorMessage}</p>
-            </div>
-          )}
+        
         </div>
       </div>
     </>

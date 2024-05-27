@@ -27,9 +27,9 @@ const Register: React.FC = () => {
 
       if (response.status === 201) {
         const response = await api.post('/login', user);
-        if(response.status === 200) {
-          const { token } = response.data; 
-          Cookies.set('jwt', token, { expires: 1 }); 
+        if (response.status === 200) {
+          const { token } = response.data;
+          Cookies.set('jwt', token, { expires: 1 });
           window.dispatchEvent(new Event('logged-in'));
         }
       }
@@ -79,6 +79,13 @@ const Register: React.FC = () => {
 
   return (
     <>
+      {errorMessage && (
+        <div className='error-message error-message-right'>
+          <MdError />
+          <p>Error: {errorMessage}</p>
+        </div>
+      )}
+
       <div className='back-rect back-rect-register'></div>
       <div className='sign-container register-container'>
         <div className='sign-header'>
@@ -109,12 +116,6 @@ const Register: React.FC = () => {
               Already have an account? <span onClick={navigateLogin}>Sign in</span>
             </div>
           </div>
-          {errorMessage && (
-            <div className='error-message-right'>
-              <MdError />
-              <p>Error: {errorMessage}</p>
-            </div>
-          )}
         </div>
       </div>
     </>

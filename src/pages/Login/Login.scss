@@ -14,21 +14,19 @@
 }
 
 .back-rect {
-    width: 50vw;
-    height: 100vh;
-    background: linear-gradient(170deg, #6BA7E3, #4D85C5, #366B9F, #1F507A, #133958, #0C2A46, #082033, #041119);
     position: fixed;
-    overflow: hidden;
-    margin-inline-start: 50%;
-    top: 0;
-    padding: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(170deg, #6BA7E3, #4D85C5, #366B9F, #1F507A, #133958, #0C2A46, #082033, #041119);
 }
 
 .sign-container {
-    position: absolute;
-    margin-inline-start: 8em;
-    margin-block-start: 6em;
-    overflow: hidden;
+    position: fixed;
+    width: 30%;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     .sign-header {
         position: relative;
@@ -36,7 +34,7 @@
 
         h2 {
             font-size: 4em;
-            margin: 0;
+            margin-bottom: 2rem;
         }
 
         p {
@@ -44,31 +42,24 @@
             font-size: 1.5em;
             font-weight: bold;
             color: #877E7E;
-            margin-bottom: 2em;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
     }
 
     .content {
         display: flex;
         flex-direction: column;
-        align-items: center;
 
         .user-credentials-textarea {
-            display: flex;
-            align-items: center;
-            width: 23em;
-            height: 1em;
+            width: 100%;
             white-space: nowrap;
             border-radius: 6em;
-            outline: none;
-            border: none;
-            resize: none;
-            line-height: 1em;
             padding: 1em;
-            padding-right: 0em;
             font-size: 1.5em;
             margin-bottom: 2em;
+            border: none;
+            resize: none;
 
             &:focus {
                 outline: none;
@@ -81,8 +72,8 @@
             align-items: center;
 
             .sign-button {
-                width: 24em;
-                height: 3em;
+                width: 100%;
+                padding: 1em;
                 font-size: 1.5em;
                 background-color: #82F04F;
                 border-radius: 6em;
@@ -92,7 +83,6 @@
             }
 
             .redirect {
-                width: fit-content;
                 position: relative;
                 padding: 1.5em;
                 font-size: 1.3em;
@@ -106,34 +96,29 @@
                 }
             }
         }
-
-        .error-message {
-            display: flex;
-            align-items: center;
-            background-color: #f6dbde;
-            width: fit-content;
-            justify-content: center;
-            padding: 1em 2em;
-            border-radius: 0.5em;
-            position: fixed;
-            top: 1em;
-            left: 1em;
-            animation: slideInLeft 0.2s forwards;
-            transform: translateX(-100%);
-
-            p {
-                margin: 0;
-                margin-left: 0.5em;
-                font-family: 'Roboto';
-                font-weight: 500;
-                font-size: 1.5em;
-            }
-
-            svg {
-                font-size: 1.5em;
-                color: red;
-            }
-        }
     }
 }
 
+.error-message {
+    display: flex;
+    align-items: center;
+    background-color: #f6dbde;
+    padding: 1em;
+    border-radius: 0.5em;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    animation: slideInLeft 0.2s forwards;
+
+    p {
+        margin-left: 0.5em;
+        font-family: 'Roboto';
+        font-weight: 500;
+        font-size: 1.5em;
+    }
+
+    svg {
+        font-size: 1.5em;
+        color: red;
+    }
+}
