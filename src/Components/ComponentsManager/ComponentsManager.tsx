@@ -39,11 +39,15 @@ const ComponentsManager = () => {
                 />
             )}
 
-            <div className='component-container'>
+            <div className='components-container'>
                 <Sidebar />
 
                 <div className='todotasks_graph-container'>
-                    <TasksGraph />
+
+                    <div className='search_graph-container'>
+                        <TasksGraph />
+
+                    </div>
 
                     <TodoTasks
                         searchedTasks={searchedTasks}
@@ -55,7 +59,10 @@ const ComponentsManager = () => {
                 </div>
 
                 <div className='resolvedtasks_searchbar-container'>
-                    <Searchbar setSearchedTasks={setSearchedTasks} />
+                    
+                    <div className='search_graph-container'>
+                        <Searchbar setSearchedTasks={setSearchedTasks} />
+                    </div>
 
                     <div className='resolvedtasks-container'>
 
@@ -78,7 +85,6 @@ const ComponentsManager = () => {
                 </div>
 
             </div>
-            {/* </div> */}
         </>
     );
 }

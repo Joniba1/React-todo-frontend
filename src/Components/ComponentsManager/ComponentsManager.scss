@@ -1,21 +1,24 @@
-.component-container {
+.components-container {
     display: flex;
+    // align-items: center;
 
-    .-container {
-        display: flex;
-        flex-direction: column;
-       
-    }
-
+   
     .resolvedtasks_searchbar-container {
         display: flex;
         flex-direction: column;
         width: 100%;
-
+        align-items: stretch; /* Make both search and graph containers stretch to the same height */
 
         .resolvedtasks-container {
             display: flex;
             gap: 1.5em;
         }
     }
+}
+
+.search_graph-container {
+    border: 4px green solid;
+    display: flex;
+    flex-direction: column;
+    // flex: ; /* Grow to fill available space */
 }

@@ -2,11 +2,13 @@
     display: flex;
     align-items: center;
     background-color: white;
-    border-radius: 1em;
+    border: 2px red solid;
+    // border-radius: 1em;
     padding: 1em;
     margin-top: 1.5em;
     margin-left: 1.5em;
     width: calc(100% - 3em);
+    // height: 6em;
 
     .search-icon {
         font-size: 2em;
