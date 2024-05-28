@@ -1,22 +1,31 @@
+.columns-container-resolved {
+    width: 100%;
+    margin-left: 1.5em;
 
 
-.column-header {
-    position: relative;
-    border-radius: 1em;
-    font-size: 0.7em;
-    height: 4em;
-    text-align: left;
-    width: 32em;
-    background-color: rgb(193, 201, 197);
-    display: flex;
-    padding-left: 1em;
-    align-items: center;
-    font-family: 'RedditSans';
-    z-index: 0;
+    .column-header {
+        border-radius: 1em;
+        font-size: 0.8em;
+        text-align: left;
+        width: 100%;
+        background-color: rgb(193, 201, 197);
+        display: flex;
+        padding-left: 1em;
+        align-items: center;
+        font-family: 'RedditSans';
+        z-index: 0;
 
-    .tasks-count {
-        position: absolute;
-        right: 1em;
-        color: rgb(0, 0, 0);
+
+        .tasks-count {
+            position: absolute;
+            right: 0;
+            margin-right: 1em;
+            color: rgb(0, 0, 0);
+        }
     }
+}
+
+.columns-container-irrelevant {
+    margin-left: 0;
+    margin-right: 1.5em;
 }

@@ -1,36 +1,27 @@
 .search-container {
     display: flex;
     align-items: center;
-    width: fit-content;
-    height: fit-content;
     background-color: white;
     border-radius: 1em;
     padding: 1em;
-    padding-right: 1.5em;
-
+    margin-top: 1.5em;
+    margin-left: 1.5em;
+    width: calc(100% - 3em);
 
     .search-icon {
         font-size: 2em;
     }
 
     .searchbar {
-        display: flex;
         padding-left: 0.3em;
         font-size: 1.5em;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        align-items: center;
         height: 1em;
-        width: 26em;
-        line-height: 1em;
+        width: 100%;
         overflow: hidden;
         border: none;
         resize: none;
         outline: none;
         white-space: nowrap;
 
-        &:focus {
-            border: none;
-        }
     }
 }

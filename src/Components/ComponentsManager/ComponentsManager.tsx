@@ -42,9 +42,8 @@ const ComponentsManager = () => {
             <div className='component-container'>
                 <Sidebar />
 
-                <div className='tasks_utilities-container'>
+                <div className='todotasks_graph-container'>
                     <TasksGraph />
-                    {/* <Searchbar setSearchedTasks={setSearchedTasks} /> */}
 
                     <TodoTasks
                         searchedTasks={searchedTasks}
@@ -55,15 +54,12 @@ const ComponentsManager = () => {
                     />
                 </div>
 
-                <div className='tasks-components-container'>
-                    {/* <TodoTasks
-                            searchedTasks={searchedTasks}
-                            setSelectedTaskTitle={setSelectedTaskTitle}
-                            setSelectedTaskDeadline={setSelectedTaskDeadline}
-                            setSelectedTaskDescription={setSelectedTaskDescription}
-                            toggleModal={toggleModal}
-                        /> */}
-                    {/* <CompletedTasks
+                <div className='resolvedtasks_searchbar-container'>
+                    <Searchbar setSearchedTasks={setSearchedTasks} />
+
+                    <div className='resolvedtasks-container'>
+
+                        <CompletedTasks
                             searchedTasks={searchedTasks}
                             setSelectedTaskTitle={setSelectedTaskTitle}
                             setSelectedTaskDeadline={setSelectedTaskDeadline}
@@ -76,7 +72,9 @@ const ComponentsManager = () => {
                             setSelectedTaskDeadline={setSelectedTaskDeadline}
                             setSelectedTaskDescription={setSelectedTaskDescription}
                             toggleModal={toggleModal}
-                        /> */}
+                        />
+                    </div>
+
                 </div>
 
             </div>

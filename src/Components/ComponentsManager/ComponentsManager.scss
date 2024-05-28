@@ -1,24 +1,21 @@
 .component-container {
     display: flex;
-    // flex-direction: row;
-    // position: fixed;
 
-    .tasks_utilities-container {
+    .-container {
         display: flex;
         flex-direction: column;
+       
+    }
+
+    .resolvedtasks_searchbar-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
 
 
-        // height: 100vh;
-        // height: calc(100vh - 1.5em);
-
-        // height: calc(100vh - 3em);
-        // align-items: center;
-        // gap: 3.5em;
-
-
-        // .tasks-components-container {
-        //     display: flex;
-        //     flex-direction: row;
-        // }
+        .resolvedtasks-container {
+            display: flex;
+            gap: 1.5em;
+        }
     }
 }

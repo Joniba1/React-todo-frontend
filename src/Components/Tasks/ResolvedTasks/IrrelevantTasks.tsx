@@ -88,7 +88,7 @@ const IrrelevantTasks: React.FC<TasksProps> = ({
 
     return (
         <>
-            <div className="columns-container">
+            <div className="columns-container columns-container-resolved columns-container-irrelevant">
                 <div className='column-header'>
                     <h1>Irrelevant</h1>
                     <h1 className='tasks-count'>{tasks.length}</h1>

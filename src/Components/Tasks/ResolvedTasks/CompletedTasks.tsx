@@ -92,7 +92,7 @@ const CompletedTasks: React.FC<TasksProps> = ({
 
     return (
         <>
-            <div className="columns-container">
+            <div className="columns-container columns-container-resolved">
                 <div className='column-header'>
                     <h1>Done</h1>
                     <h1 className='tasks-count'>{tasks.length}</h1>

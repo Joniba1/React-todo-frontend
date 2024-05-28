@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RedditSans';
+  src: url('../assets/RedditSans.ttf') format('truetype');
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -23,8 +33,9 @@
   */
 body {
   line-height: 1.5;
-  // height: 100%;
-
+  height: 100%;
+  overflow: hidden;
+  background: rgb(239, 239, 239);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -69,4 +80,8 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

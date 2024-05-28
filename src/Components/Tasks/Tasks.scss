@@ -1,27 +1,8 @@
-@font-face {
-  font-family: 'Roboto';
-  src: url('../assets/Roboto-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'RedditSans';
-  src: url('../assets/RedditSans.ttf') format('truetype');
-}
-
-body {
-  background: rgb(239, 239, 239);
-  overflow: hidden;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
 .columns-container {
   position: relative;
   margin-top: 1.5em;
-  border: 2px red solid;
-  // height: calc(100vh - 1em);
+  border: 2px blue solid;
+
   .tasks-header {
     position: relative;
     border-radius: 1em;
@@ -34,85 +15,87 @@ body {
     .tasks-count {
       position: absolute;
       right: 0;
-      padding-right: 0.5em;
+      margin-right: 0.5em;
       color: rgb(0, 0, 0);
     }
   }
 
 
   .tasks-container {
-    position: absolute;
     border: 2px red solid;
-
     margin-top: 1.5em;
     display: flex;
-    // position: relative;
     overflow: auto;
-    max-height: calc(100vh - 1.5em); 
+    // max-height: calc(100vh - 1.5em);
+  }
 
-    .column-1 {
-      margin-left: 1.5em;
-      position: relative;
-      right: 0;
-    }
+  .column-1 {
+    margin-left: 1.5em;
+  }
+
+  .column {
+    width: 100%;
 
     .task {
       padding: 1em;
       margin-bottom: 1em;
       background-color: #ffffff;
-      width: 26em;
       border-radius: 1em;
       box-shadow: rgba(50, 50, 93, 0.1) 0px 4px 8px -2px, rgba(0, 0, 0, 0.1) 0px 3px 6px -3px;
 
       .task-title {
         background-color: #ffffff;
-        line-height: 1.2;
+        line-height: 1;
         font-size: 1.5em;
         font-family: 'Roboto';
+        margin-bottom: 0.5em;
         cursor: pointer;
       }
 
       .task-description {
+        line-height: 1;
         position: relative;
         background-color: #ffffff;
         color: #818285;
         font-size: 1.2em;
         font-family: 'Roboto';
-        padding: 0.5em 0;
+        margin-bottom: 0.5em;
       }
 
       .task-utilities {
-        position: relative;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         color: #6d6d6e;
 
-        .due-text {
-          position: relative;
-          // display: inline-block;
-          // margin-top: 1em;
-          font-family: 'Inter';
-          font-size: 1.2em;
-          font-weight: 500;
-          color: #4e5058;
-          opacity: 1;
-          // margin-block-start: 1em;
-          margin-inline-start: 0em;
-        }
+        .due-text-container {
+          margin-right: auto;
 
-        .due-text.passed {
-          color: red;
+          .due-text {
+            font-family: 'Inter';
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #4e5058;
+          }
+
+          .due-text.overdue {
+            color: red;
+          }
         }
 
         .buttons {
-          position: absolute;
           display: flex;
           gap: 0.5em;
-          right: 0;
+
+          .deleteButton,
+          .setRelevanceButton,
+          .setCompletedButton {
+            cursor: pointer;
+          }
 
           .deleteButton {
-            position: relative;
-            cursor: pointer;
+
+
             font-size: 1.3em;
 
             &:hover {
@@ -121,8 +104,6 @@ body {
           }
 
           .setRelevanceButton {
-            position: relative;
-            cursor: pointer;
             font-size: 1.4em;
 
             &:hover {
@@ -131,8 +112,6 @@ body {
           }
 
           .setCompletedButton {
-            position: relative;
-            cursor: pointer;
             font-size: 1.3em;
 
             &:hover {
@@ -140,20 +119,7 @@ body {
             }
           }
         }
-
-
       }
     }
   }
-}
-
-
-
-
-#tooltipTodo,
-#tooltipCompleted,
-#tooltipIrrelevant {
-  font-family: 'Roboto';
-  background-color: #4b4b4b;
-  border-radius: 0.5em;
 }
