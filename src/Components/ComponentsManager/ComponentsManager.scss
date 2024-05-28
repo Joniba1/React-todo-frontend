@@ -1,13 +1,18 @@
 .components-container {
     display: flex;
-    // align-items: center;
 
-   
+    .todotasks_graph-container {
+        display: flex;
+        flex-direction: column;
+       
+    }
+
     .resolvedtasks_searchbar-container {
         display: flex;
         flex-direction: column;
         width: 100%;
-        align-items: stretch; /* Make both search and graph containers stretch to the same height */
+        // border: 4px currentColor solid;
+
 
         .resolvedtasks-container {
             display: flex;
@@ -17,8 +22,5 @@
 }
 
 .search_graph-container {
-    border: 4px green solid;
-    display: flex;
-    flex-direction: column;
-    // flex: ; /* Grow to fill available space */
+    height: 8em;
 }
