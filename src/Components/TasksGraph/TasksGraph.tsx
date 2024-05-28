@@ -80,41 +80,63 @@ const TasksGraph = () => {
         <>
 
             <div className="graph-container">
+                <div className='icon-labels'>
+                    <input
+                        type="month"
+                        value={selectedMonth}
+                        onChange={(e) => setSelectedMonth(e.target.value)}
+                    />
+                </div>
+
                 <div className="graph">
-                    <div className='icon-labels'>
-                        <input
-                            type="month"
-                            value={selectedMonth}
-                            onChange={(e) => setSelectedMonth(e.target.value)}
-                        />
-                    </div>
-                    {days.map(({ day, tasksInDayCount }) => {
-                        tasks.find((task) => {
-                            const taskDate = new Date(task.deadline);
+
+
+
+
+
+                    <div className='days-container'>
+
+                        <hr />
+                        <hr className='gridline-1' />
+                        <hr className='gridline-2' />
+
+                        {days.map(({ day, tasksInDayCount }) => {
+                            tasks.find((task) => {
+                                const taskDate = new Date(task.deadline);
+                                return (
+                                    taskDate.getFullYear() === new Date(selectedMonth).getFullYear() &&
+                                    taskDate.getMonth() + 1 === new Date(selectedMonth).getMonth() + 1 &&
+                                    taskDate.getDate() === day
+                                );
+                            });
+
+                            const maxHeight = 4.5;
+                            const barHeight = tasksInDayCount > 0 ? `${(tasksInDayCount / totalTasksCount) * maxHeight}em` : '0%';
+
                             return (
-                                taskDate.getFullYear() === new Date(selectedMonth).getFullYear() &&
-                                taskDate.getMonth() + 1 === new Date(selectedMonth).getMonth() + 1 &&
-                                taskDate.getDate() === day
+                                <>
+
+
+                                    <div key={day} className="day">
+                                        <div
+                                            className='bar'
+                                            style={{ height: barHeight }}
+                                        ></div>
+
+
+                                        <div className="day-number">{day}</div>
+                                    </div>
+
+                                </>
+
                             );
-                        });
+                        })}
 
-                        const maxHeight = 4;
-                        const barHeight = tasksInDayCount > 0 ? `${(tasksInDayCount / totalTasksCount) * maxHeight}em` : '0%';
+                    </div>
 
-                        return (
-                            <div key={day} className="days-container">
-                                <div
-                                    className='bar'
-                                    style={{ height: barHeight }}
-                                ></div>
-                                <div className="day-number">{day}</div>
-                            </div>
-                        );
-                    })}
 
-                    <hr className="grid-line-2" />
-                    <hr className="grid-line-3" />
-                    <hr />
+                    {/* <hr className="grid-line-2" />
+                    <hr className="grid-line-3" /> */}
                 </div>
             </div>
         </>

@@ -1,13 +1,15 @@
 .sidebar {
     position: relative;
     background: linear-gradient(#73BBBF, #587EA1, #3F5C8D, #1B2E71);
-    border-radius: 1em;
+    // border-radius: 1em;
     height: calc(100vh - 3em);
     margin: 1.5em;
     padding: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px red solid;
+
 
     .react-icon {
         font-size: 2.5em;

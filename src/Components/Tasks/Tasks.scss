@@ -19,101 +19,84 @@ body {
 
 .columns-container {
   position: relative;
-  margin: 2em 2em 0 0;
-
+  margin-top: 1.5em;
+  border: 2px red solid;
+  // height: calc(100vh - 1em);
   .tasks-header {
     position: relative;
     border-radius: 1em;
-    font-size: 0.7em;
-    height: 4em;
-    text-align: left;
-    width: 66em;
+    font-size: 0.8em;
     background-color: #c1c9c5;
     display: flex;
     padding-left: 1em;
-    align-items: center;
     font-family: 'RedditSans';
 
     .tasks-count {
       position: absolute;
-      right: 1em;
+      right: 0;
+      padding-right: 0.5em;
       color: rgb(0, 0, 0);
     }
   }
 
 
   .tasks-container {
+    position: absolute;
+    border: 2px red solid;
 
-    margin-top: 1em;
+    margin-top: 1.5em;
     display: flex;
-    position: relative;
-    max-height: calc(100vh - 15em);
-    width: fit-content;
+    // position: relative;
     overflow: auto;
-    // margin-left: 1em;
+    max-height: calc(100vh - 1.5em); 
 
     .column-1 {
       margin-left: 1.5em;
+      position: relative;
+      right: 0;
     }
 
-    .column {
-      // margin-top: 1em;
-      // margin-left: 1em;
+    .task {
+      padding: 1em;
+      margin-bottom: 1em;
+      background-color: #ffffff;
+      width: 26em;
+      border-radius: 1em;
+      box-shadow: rgba(50, 50, 93, 0.1) 0px 4px 8px -2px, rgba(0, 0, 0, 0.1) 0px 3px 6px -3px;
 
-
-      .task {
-        z-index: 0;
-        padding: 1em;
-        margin-bottom: 1em;
+      .task-title {
         background-color: #ffffff;
-        overflow: hidden;
-        width: 22em;
-        border-radius: 1em;
-        box-shadow: rgba(50, 50, 93, 0.1) 0px 4px 8px -2px, rgba(0, 0, 0, 0.1) 0px 3px 6px -3px;
+        line-height: 1.2;
+        font-size: 1.5em;
+        font-family: 'Roboto';
+        cursor: pointer;
+      }
 
-        .task-title {
-          cursor: pointer;
-          font-family: 'Roboto';
-          margin: 0;
-          background-color: #ffffff;
-          font-weight: 450;
-          height: auto;
-          border: none;
-          align-items: center;
-          line-height: 1.2;
-          outline: none;
-          resize: none;
-          overflow: hidden;
-          font-size: 1.5em;
-          word-wrap: break-word;
-        }
+      .task-description {
+        position: relative;
+        background-color: #ffffff;
+        color: #818285;
+        font-size: 1.2em;
+        font-family: 'Roboto';
+        padding: 0.5em 0;
+      }
 
-        .task-description {
-          position: relative;
-          background-color: #ffffff;
-          color: #818285;
-          font-weight: 500;
-          font-size: 1.2em;
-          height: auto;
-          border: none;
-          block-size: auto;
-          overflow: hidden;
-          margin: 0em;
-          max-height: 7em;
-          word-wrap: break-word;
-          font-family: 'Roboto';
-        }
+      .task-utilities {
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: #6d6d6e;
 
         .due-text {
           position: relative;
           // display: inline-block;
-          margin-top:1em;
+          // margin-top: 1em;
           font-family: 'Inter';
           font-size: 1.2em;
           font-weight: 500;
           color: #4e5058;
           opacity: 1;
-          margin-block-start: 1em;
+          // margin-block-start: 1em;
           margin-inline-start: 0em;
         }
 
@@ -121,12 +104,11 @@ body {
           color: red;
         }
 
-        .task-utilities {
+        .buttons {
+          position: absolute;
           display: flex;
           gap: 0.5em;
-          margin-top: 1em;
-          margin-inline-start: 75%;
-          color: #4e5058;
+          right: 0;
 
           .deleteButton {
             position: relative;
@@ -158,12 +140,12 @@ body {
             }
           }
         }
+
+
       }
     }
   }
-
 }
-
 
 
 

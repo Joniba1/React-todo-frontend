@@ -43,20 +43,27 @@ const ComponentsManager = () => {
                 <Sidebar />
 
                 <div className='tasks_utilities-container'>
-                    <div className='graph_search-container'>
-                        <TasksGraph />
-                        <Searchbar setSearchedTasks={setSearchedTasks} />
-                    </div>
+                    <TasksGraph />
+                    {/* <Searchbar setSearchedTasks={setSearchedTasks} /> */}
 
-                    <div className='tasks-components-container'>
-                        <TodoTasks
+                    <TodoTasks
+                        searchedTasks={searchedTasks}
+                        setSelectedTaskTitle={setSelectedTaskTitle}
+                        setSelectedTaskDeadline={setSelectedTaskDeadline}
+                        setSelectedTaskDescription={setSelectedTaskDescription}
+                        toggleModal={toggleModal}
+                    />
+                </div>
+
+                <div className='tasks-components-container'>
+                    {/* <TodoTasks
                             searchedTasks={searchedTasks}
                             setSelectedTaskTitle={setSelectedTaskTitle}
                             setSelectedTaskDeadline={setSelectedTaskDeadline}
                             setSelectedTaskDescription={setSelectedTaskDescription}
                             toggleModal={toggleModal}
-                        />
-                        <CompletedTasks
+                        /> */}
+                    {/* <CompletedTasks
                             searchedTasks={searchedTasks}
                             setSelectedTaskTitle={setSelectedTaskTitle}
                             setSelectedTaskDeadline={setSelectedTaskDeadline}
@@ -69,10 +76,11 @@ const ComponentsManager = () => {
                             setSelectedTaskDeadline={setSelectedTaskDeadline}
                             setSelectedTaskDescription={setSelectedTaskDescription}
                             toggleModal={toggleModal}
-                        />
-                    </div>
+                        /> */}
                 </div>
+
             </div>
+            {/* </div> */}
         </>
     );
 }

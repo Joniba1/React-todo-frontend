@@ -1,22 +1,24 @@
 .component-container {
     display: flex;
-    flex-direction: row;
-    position: fixed;
-    
+    // flex-direction: row;
+    // position: fixed;
+
     .tasks_utilities-container {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
 
-        .graph_search-container {
-            display: flex;
-            display: row;
-            align-items: center;
-            gap: 3.5em;
-        }
-    
-        .tasks-components-container {
-            display: flex;
-            flex-direction: row;
-        }
+
+        // height: 100vh;
+        // height: calc(100vh - 1.5em);
+
+        // height: calc(100vh - 3em);
+        // align-items: center;
+        // gap: 3.5em;
+
+
+        // .tasks-components-container {
+        //     display: flex;
+        //     flex-direction: row;
+        // }
     }
 }

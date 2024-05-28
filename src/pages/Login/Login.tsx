@@ -111,8 +111,6 @@ const Login = () => {
               Don't have an account? <span onClick={navigateRegister}>Sign up</span>
             </div>
           </div>
-
-        
         </div>
       </div>
     </>
