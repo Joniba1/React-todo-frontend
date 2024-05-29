@@ -114,7 +114,7 @@ const TasksGraph = () => {
                             const barHeight = tasksInDayCount > 0 ? `${(tasksInDayCount / totalTasksCount) * maxHeight}em` : '0%';
 
                             return (
-                                <>
+                                
 
 
                                     <div key={day} className="day">
@@ -127,7 +127,6 @@ const TasksGraph = () => {
                                         <div className="day-number">{day}</div>
                                     </div>
 
-                                </>
 
                             );
                         })}
