@@ -92,7 +92,7 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
   return (
     <>
       {errorMessage && (
-        <div className='error-message-right'>
+        <div className='error-message error-message-right'>
           <MdError />
           <p>{errorMessage}</p>
         </div>
