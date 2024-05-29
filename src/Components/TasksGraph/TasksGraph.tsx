@@ -89,11 +89,6 @@ const TasksGraph = () => {
                 </div>
 
                 <div className="graph">
-
-
-
-
-
                     <div className='days-container'>
 
                         <hr />
@@ -101,6 +96,7 @@ const TasksGraph = () => {
                         <hr className='gridline-2' />
 
                         {days.map(({ day, tasksInDayCount }) => {
+
                             tasks.find((task) => {
                                 const taskDate = new Date(task.deadline);
                                 return (
@@ -114,29 +110,20 @@ const TasksGraph = () => {
                             const barHeight = tasksInDayCount > 0 ? `${(tasksInDayCount / totalTasksCount) * maxHeight}em` : '0%';
 
                             return (
-                                <>
+                                <div className="day" key={`day-${day}`}>
+                                    <div
+                                        className='bar'
+                                        style={{ height: barHeight }}
+                                    ></div>
 
+                                    <div className="day-number">{day}</div>
+                                </div>
 
-                                    <div key={day} className="day">
-                                        <div
-                                            className='bar'
-                                            style={{ height: barHeight }}
-                                        ></div>
-
-
-                                        <div className="day-number">{day}</div>
-                                    </div>
-
-                                </>
 
                             );
                         })}
 
                     </div>
-
-
-                    {/* <hr className="grid-line-2" />
-                    <hr className="grid-line-3" /> */}
                 </div>
             </div>
         </>
