@@ -115,19 +115,28 @@ const TasksGraph = () => {
                                         className='bar'
                                         style={{ height: barHeight }}
                                     ></div>
+                                
+
+
+                                    <div key={day} className="day">
+                                        <div
+                                            className='bar'
+                                            style={{ height: barHeight }}
+                                        ></div>
+
 
                                     <div className="day-number">{day}</div>
                                 </div>
 
 
-                            );
+                                    );
                         })}
 
                     </div>
                 </div>
-            </div>
-        </>
-    );
+                </div>
+            </>
+            );
 };
 
-export default TasksGraph;
+            export default TasksGraph;
