@@ -6,7 +6,7 @@ export type User = {
 export type Task = {
     username: string;
     title: string;
-    completed: boolean;
+    completed: boolean; 
     relevance: boolean;
     deadline: string;
     description: string;

@@ -1,7 +1,5 @@
 .graph-container {
-    position: relative;
     display: flex;
-    // align-items: center;
 
     .icon-labels {
         input[type="month"] {
@@ -65,8 +63,6 @@
                 margin-top: 4.5em;
                 border-bottom: 2px solid #B4B4B4;
             }
-
-
         }
     }
 }

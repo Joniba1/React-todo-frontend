@@ -28,12 +28,10 @@ const Sidebar = () => {
         <>
             {modal && <AddTaskForm toggleModal={toggleModal} modal={modal} />}
 
-            {/* <div className='sidebar-container'> */}
             <div className="sidebar">
                 <p className="react-icon logout-button" onClick={handleLogout}><RiLogoutBoxLine /></p>
                 <p className="react-icon add-task-button" onClick={toggleModal}><RiAddLargeLine /></p>
             </div>
-            {/* </div> */}
         </>
     )
 }
