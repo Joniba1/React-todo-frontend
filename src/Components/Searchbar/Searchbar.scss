@@ -2,13 +2,8 @@
     display: flex;
     align-items: center;
     background-color: white;
-    border: 2px red solid;
-    // border-radius: 1em;
     padding: 1em;
-    margin-top: 1.5em;
-    margin-left: 1.5em;
-    width: calc(100% - 3em);
-    // height: 6em;
+    margin: 1.5em 1.5em 0 1.5em;
 
     .search-icon {
         font-size: 2em;
@@ -24,6 +19,5 @@
         resize: none;
         outline: none;
         white-space: nowrap;
-
     }
 }

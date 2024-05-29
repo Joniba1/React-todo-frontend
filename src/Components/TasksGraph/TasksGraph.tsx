@@ -110,7 +110,7 @@ const TasksGraph = () => {
                                 );
                             });
 
-                            const maxHeight = 4.5;
+                            const maxHeight = 4;
                             const barHeight = tasksInDayCount > 0 ? `${(tasksInDayCount / totalTasksCount) * maxHeight}em` : '0%';
 
                             return (

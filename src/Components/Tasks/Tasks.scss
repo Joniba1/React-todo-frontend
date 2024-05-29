@@ -1,7 +1,6 @@
 .columns-container {
   position: relative;
   margin-top: 1.5em;
-  border: 2px blue solid;
 
   .tasks-header {
     position: relative;
@@ -25,7 +24,7 @@
     border: 2px red solid;
     margin-top: 1.5em;
     display: flex;
-    overflow: auto;
+    overflow-y: auto;
     // max-height: calc(100vh - 1.5em);
   }
 
