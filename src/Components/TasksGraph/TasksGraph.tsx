@@ -78,7 +78,6 @@ const TasksGraph = () => {
 
     return (
         <>
-
             <div className="graph-container">
                 <div className='icon-labels'>
                     <input
@@ -89,18 +88,15 @@ const TasksGraph = () => {
                 </div>
 
                 <div className="graph">
-
-
-
-
-
                     <div className='days-container'>
 
                         <hr />
                         <hr className='gridline-1' />
                         <hr className='gridline-2' />
 
-                        {days.map(({ day, tasksInDayCount }) => {
+                        {days.map(({ day, tasksInDayCount }, index) => {
+                            const key = `${selectedMonth}-${day}-${index}`; // Create a unique key
+
                             tasks.find((task) => {
                                 const taskDate = new Date(task.deadline);
                                 return (
@@ -115,25 +111,18 @@ const TasksGraph = () => {
 
                             return (
 
-
-
-                                <div key={day} className="day">
+                                <div key={key} className="day">
                                     <div
                                         className='bar'
                                         style={{ height: barHeight }}
                                     ></div>
 
-
                                     <div className="day-number">{day}</div>
                                 </div>
-
-                                // check
+                                //check
                             );
                         })}
-
                     </div>
-
-
                 </div>
             </div>
         </>
