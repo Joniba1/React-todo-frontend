@@ -134,8 +134,6 @@ const TasksGraph = () => {
                     </div>
 
 
-                    {/* <hr className="grid-line-2" />
-                    <hr className="grid-line-3" /> */}
                 </div>
             </div>
         </>
