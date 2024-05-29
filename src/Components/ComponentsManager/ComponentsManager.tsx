@@ -44,10 +44,7 @@ const ComponentsManager = () => {
 
                 <div className='todotasks_graph-container'>
 
-                    <div className='search_graph-container'>
-                        <TasksGraph />
-
-                    </div>
+                    <TasksGraph />
 
                     <TodoTasks
                         searchedTasks={searchedTasks}
@@ -59,10 +56,8 @@ const ComponentsManager = () => {
                 </div>
 
                 <div className='resolvedtasks_searchbar-container'>
-                    
-                    <div className='search_graph-container'>
-                        <Searchbar setSearchedTasks={setSearchedTasks} />
-                    </div>
+
+                    <Searchbar setSearchedTasks={setSearchedTasks} />
 
                     <div className='resolvedtasks-container'>
 

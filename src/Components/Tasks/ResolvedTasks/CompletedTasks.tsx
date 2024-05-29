@@ -104,13 +104,20 @@ const CompletedTasks: React.FC<TasksProps> = ({
                                 <div key={index} className="task">
                                     <p className="task-title" onClick={() => handleEdit(task.title, task.description, task.deadline)}>{task.title}</p>
                                     <p className="task-description">{task.description}</p>
-                                    {task.deadline && (
-                                        <p className='due-text'>Due: {new Date(task.deadline).toLocaleDateString()}</p>
-                                    )}
+
+
                                     <div className='task-utilities'>
-                                        <p className="deleteButton" data-tooltip-id="tooltipCompleted" data-tooltip-content="Delete" onClick={() => handleDelete(task.title)}><FaRegTrashAlt /></p>
-                                        <p className="setRelevanceButton" data-tooltip-id="tooltipCompleted" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title, task.deadline)}><TbNotesOff /></p>
-                                        <p className="setCompletedButton" data-tooltip-id="tooltipCompleted" data-tooltip-content="Incomplete" onClick={() => handleSetCompleted(task.title, task.deadline)}><BiTaskX /></p>
+                                        {task.deadline && (
+                                            <div className='due_text-container'>
+                                                <p className='due-text'>Due: {new Date(task.deadline).toLocaleDateString()}</p>
+                                            </div>
+                                        )}
+                                        <div className='buttons'>
+                                            <p className="setRelevanceButton" data-tooltip-id="tooltipCompleted" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title, task.deadline)}><TbNotesOff /></p>
+                                            <p className="setCompletedButton" data-tooltip-id="tooltipCompleted" data-tooltip-content="Incomplete" onClick={() => handleSetCompleted(task.title, task.deadline)}><BiTaskX /></p>
+                                            <p className="deleteButton" data-tooltip-id="tooltipCompleted" data-tooltip-content="Delete" onClick={() => handleDelete(task.title)}><FaRegTrashAlt /></p>
+
+                                        </div>
                                     </div>
                                 </div>
                             );
@@ -118,7 +125,7 @@ const CompletedTasks: React.FC<TasksProps> = ({
                     </div>
                 </div>
             </div>
-            <Tooltip id="tooltipCompleted" place="bottom" />
+            <Tooltip id="tooltipCompleted" place="bottom" style={{ fontFamily: "Roboto" }} />
         </>
     );
 };

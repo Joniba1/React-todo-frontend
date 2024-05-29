@@ -99,20 +99,37 @@ const IrrelevantTasks: React.FC<TasksProps> = ({
                             <div key={index} className="task">
                                 <p className="task-title" onClick={() => handleEdit(task.title, task.description, task.deadline)}>{task.title}</p>
                                 <p className="task-description">{task.description}</p>
-                                {task.deadline && (
-                                    <p className='due-text'>Due: {new Date(task.deadline).toLocaleDateString()}</p>
-                                )}
+
+
+
+
+
                                 <div className='task-utilities'>
-                                    <p className="deleteButton" data-tooltip-id="tooltipIrrelevant" data-tooltip-content="Delete" onClick={() => handleDelete(task.title)}><FaRegTrashAlt /></p>
-                                    <p className="setRelevanceButton" data-tooltip-id="tooltipIrrelevant" data-tooltip-content="Relevant" onClick={() => handleSetRelevance(task.title, task.completed, task.deadline)}><TbNotes /></p>
+                                    {task.deadline && (
+                                        <div className='due_text-container'>
+                                            <p className='due-text'>Due: {new Date(task.deadline).toLocaleDateString()}</p>
+
+                                        </div>
+                                    )}
+                                    <div className='buttons'>
+                                        <p className="setRelevanceButton" data-tooltip-id="tooltipIrrelevant" data-tooltip-content="Relevant" onClick={() => handleSetRelevance(task.title, task.completed, task.deadline)}><TbNotes /></p>
+                                        <p className="deleteButton" data-tooltip-id="tooltipIrrelevant" data-tooltip-content="Delete" onClick={() => handleDelete(task.title)}><FaRegTrashAlt /></p>
+                                    </div>
                                 </div>
+
+
+
+
+
+
+
                             </div>
                         ))}
                     </div>
                 </div>
-            </div>
+            </div >
 
-            <Tooltip id="tooltipIrrelevant" place="bottom" />
+            <Tooltip id="tooltipIrrelevant" place="bottom" style={{ fontFamily: "Roboto" }} />
 
         </>
     );

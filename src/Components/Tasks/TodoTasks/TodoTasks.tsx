@@ -115,16 +115,16 @@ const TodoTasks: React.FC<TasksProps> = ({
                       <div className='task-utilities'>
                         {task.deadline && (
                           <>
-                            <div className='due-text-container'>
+                            <div className='due_text-container'>
                               <p className={`due-text ${deadlinePassed ? 'overdue' : ''}`}>Due: {new Date(task.deadline).toLocaleDateString()}</p>
                             </div>
                           </>
 
                         )}
                         <div className='buttons'>
-                          <p className="deleteButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Delete" onClick={() => handleDelete(task.title, task.deadline)}><FaRegTrashAlt /></p>
                           <p className="setRelevanceButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title, task.deadline)}><TbNotesOff /></p>
                           <p className="setCompletedButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Complete!" onClick={() => handleSetCompleted(task.title, task.deadline)}><GrCompliance /></p>
+                          <p className="deleteButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Delete" onClick={() => handleDelete(task.title, task.deadline)}><FaRegTrashAlt /></p>
                         </div>
 
                       </div>
@@ -139,7 +139,7 @@ const TodoTasks: React.FC<TasksProps> = ({
           ))}
         </div>
       </div>
-      <Tooltip id="tooltipTodo" place="bottom" />
+      <Tooltip id="tooltipTodo" place="bottom" style={{ fontFamily: "Roboto" }}/>
     </>
   );
 

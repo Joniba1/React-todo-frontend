@@ -1,13 +1,11 @@
 .graph-container {
     position: relative;
     display: flex;
-    align-items: center;
-    margin-top: 1.5em;
-        // border: 2px red solid;
-
+    // align-items: center;
 
     .icon-labels {
         input[type="month"] {
+            margin-top: 0.5em;
             font-size: 2em;
             border: none;
             margin-right: 0.2em;
@@ -27,8 +25,7 @@
 
     .graph {
         .days-container {
-            // height: 6em;
-            margin-top: 4em;
+            height: 6em;
             position: relative;
             display: flex;
             align-items: flex-end;
@@ -54,25 +51,22 @@
             hr {
                 position: absolute;
                 border: none;
-                margin-bottom: 1.5em;
-                border-bottom: 2px solid #B4B4B4;
+                top: 0;
+                border-bottom: 2px dotted #B4B4B4;
                 width: 100%;
             }
 
             .gridline-1 {
                 border-bottom: 2px dotted #B4B4B4;
-                margin-bottom: 3.5em;
+                margin-top: 2.25em;
             }
     
             .gridline-2 {
-                margin-bottom: 5.5em;
-                margin-top: 1.5em;
-                border-bottom: 2px dotted #B4B4B4;
+                margin-top: 4.5em;
+                border-bottom: 2px solid #B4B4B4;
             }
 
 
         }
     }
 }
-
-

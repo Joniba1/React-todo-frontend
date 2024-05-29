@@ -3,18 +3,19 @@
     align-items: center;
     background-color: white;
     padding: 1em;
+    border-radius: 1em;
     margin: 1.5em 1.5em 0 1.5em;
-
+    // width: 100%;
     .search-icon {
         font-size: 2em;
     }
 
     .searchbar {
-        padding-left: 0.3em;
-        font-size: 1.5em;
-        height: 1em;
+        margin-top: 0.3125em;
+        padding-left: 0.3125em;
+        font-size: 1.3125em;
+        height: 1.5em;
         width: 100%;
-        overflow: hidden;
         border: none;
         resize: none;
         outline: none;
