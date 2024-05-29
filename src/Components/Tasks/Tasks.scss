@@ -18,9 +18,10 @@
 
 
   .tasks-container {
-    margin-top: 1.5em;
+    margin-top: 1em;
     display: flex;
     overflow: auto;
+    max-height:37.175em ;
   }
 
   .column-1 {
@@ -49,8 +50,6 @@
       }
 
       .task-description {
-        line-height: 1;
-        position: relative;
         background-color: #ffffff;
         color: #818285;
         font-size: 1.2em;

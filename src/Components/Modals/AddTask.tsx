@@ -97,7 +97,7 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
           <p>{errorMessage}</p>
         </div>
       )}
-      
+
       <div className="overlay" onClick={toggleModal}></div>
       <div className="modal">
         <div className='modal-title'>
@@ -116,9 +116,9 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
                 required
               />
               <textarea
+                className="description"
                 value={description}
                 onChange={handleDescriptionChange}
-                className="description"
                 placeholder="Task description"
                 maxLength={300}
               />

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Searchbar from '../Searchbar/Searchbar';
 import TodoTasks from '../Tasks/TodoTasks/TodoTasks';
-// import { Task } from '../../../../types';
 import { Task } from '../../types';
 import Sidebar from '../Sidebar/Sidebar';
 import CompletedTasks from '../Tasks/ResolvedTasks/CompletedTasks';
