@@ -118,7 +118,6 @@ const TasksGraph = () => {
 
                                     <div className="day-number">{day}</div>
                                 </div>
-
                             );
                         })}
                     </div>
