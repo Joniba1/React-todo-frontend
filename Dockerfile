@@ -1,4 +1,4 @@
-FROM node:21 AS base
+FROM node:18-alpine AS base
 
 WORKDIR /app/frontend
 
