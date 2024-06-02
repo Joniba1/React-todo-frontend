@@ -8,7 +8,7 @@ import AddTaskForm from '../Modals/AddTask';
 //CSS
 import './Sidebar.scss';
 
-//React icons
+//React iconsgit b
 import { RiAddLargeLine, RiLogoutBoxLine } from 'react-icons/ri';
 
 
