@@ -14,7 +14,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { TbNotes } from "react-icons/tb";
 
 // CSS
-import './ResolvedTasks.scss';
+import '../ResolvedTasks.scss';
 
 const IrrelevantTasks: React.FC<TasksProps> = ({
     searchedTasks,
