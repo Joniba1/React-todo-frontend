@@ -5,13 +5,17 @@ import { Task } from '../../../types';
 const useTodoTasks = (searchedTasks: Task[]) => {
     const [todoTasks, setTodoTasks] = useState<Task[]>([]);
 
+    const filterTodoTasks = (tasks: Task[]) => {
+        return tasks.filter((task: Task) => !task.completed && task.relevance);
+    }
+
     const fetchTodoTasks = async () => {
         try {
             const response = await api.get('/tasks');
             const tasks = response.data;
 
             if (tasks) {
-                setTodoTasks(tasks.filter((task: Task) => !task.completed && task.relevance));
+                setTodoTasks(filterTodoTasks(tasks));
             }
         } catch (error) {
             console.error('Error fetching tasks:', error);
@@ -19,16 +23,14 @@ const useTodoTasks = (searchedTasks: Task[]) => {
     };
 
     useEffect(() => {
-        setTodoTasks(searchedTasks);
+        setTodoTasks(filterTodoTasks(searchedTasks));
     }, [searchedTasks])
 
     useEffect(() => {
-        fetchTodoTasks();
-        const fetchTodoTasksListener = () => fetchTodoTasks();
-        window.addEventListener('fetch-todo-tasks', fetchTodoTasksListener);
+        window.addEventListener('fetch-todo-tasks', fetchTodoTasks);
 
         return () => {
-            window.removeEventListener('fetch-todo-tasks', fetchTodoTasksListener);
+            window.removeEventListener('fetch-todo-tasks', fetchTodoTasks);
         };
     }, []);
 

@@ -1,9 +1,6 @@
-// Scripts
 import { TasksProps } from '../../ComponentsManager/ComponentsManager.tsx';
-import TaskItem from './TaskItem.tsx';
+import TaskItem from '../TaskItem.tsx';
 import useTodoTasks from './UseTodoTasks.tsx';
-
-// CSS
 import '../Tasks.scss';
 
 const TodoTasks: React.FC<TasksProps> = ({
