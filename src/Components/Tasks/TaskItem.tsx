@@ -49,9 +49,6 @@ const TaskItem: React.FC<TaskProps> = ({
         } else {
             window.dispatchEvent(new Event('fetch-todo-tasks'))
         }
-        if (deadline) {
-            window.dispatchEvent(new Event('update-graph'));
-        }
     };
 
     const handleSetRelevance = async (title: string, deadline: string) => {
@@ -63,18 +60,12 @@ const TaskItem: React.FC<TaskProps> = ({
         } else {
             window.dispatchEvent(new Event('fetch-todo-tasks'))
         }
-        if (deadline) {
-            window.dispatchEvent(new Event('update-graph'));
-        }
     };
 
     const handleSetCompleted = async (title: string, deadline: string) => {
         await setCompleted(title);
         window.dispatchEvent(new Event('fetch-todo-tasks'))
         window.dispatchEvent(new Event('fetch-completed-tasks'));
-        if (deadline) {
-            window.dispatchEvent(new Event('update-graph'));
-        }
     };
 
     return (

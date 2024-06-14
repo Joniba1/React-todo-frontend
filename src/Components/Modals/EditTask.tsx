@@ -85,9 +85,6 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ toggleModal, selectedTask }
                 window.dispatchEvent(new Event('fetch-todo-tasks'));
                 window.dispatchEvent(new Event('fetch-irrelevant-tasks'));
                 window.dispatchEvent(new Event('fetch-completed-tasks'));
-                if (formattedDeadline) {
-                    window.dispatchEvent(new Event('update-graph'));
-                }
             }
         } catch (error) {
             if (axios.isAxiosError(error) && error.response) {

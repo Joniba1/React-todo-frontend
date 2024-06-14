@@ -65,9 +65,6 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
         setTime('');
         toggleModal();
         window.dispatchEvent(new Event('fetch-todo-tasks'));
-        if (formattedDeadline) {
-          window.dispatchEvent(new Event('update-graph'));
-        }
       }
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {

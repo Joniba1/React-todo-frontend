@@ -76,9 +76,6 @@ const IrrelevantTasks: React.FC<TasksProps> = ({
         await setRelevance(title);
         fetchIrrelevantTasks();
         completed ? window.dispatchEvent(new Event('fetch-completed-tasks')) : window.dispatchEvent(new Event('fetch-todo-tasks'));
-        if (deadline) {
-            window.dispatchEvent(new Event('update-graph'));
-        }
     };
 
 
