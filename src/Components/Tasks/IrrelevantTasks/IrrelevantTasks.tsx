@@ -72,7 +72,7 @@ const IrrelevantTasks: React.FC<TasksProps> = ({
         fetchIrrelevantTasks();
     };
 
-    const handleSetRelevance = async (title: string, completed: boolean, deadline: string) => {
+    const handleSetRelevance = async (title: string, completed: boolean) => {
         await setRelevance(title);
         fetchIrrelevantTasks();
         completed ? window.dispatchEvent(new Event('fetch-completed-tasks')) : window.dispatchEvent(new Event('fetch-todo-tasks'));
@@ -109,7 +109,7 @@ const IrrelevantTasks: React.FC<TasksProps> = ({
                                         </div>
                                     )}
                                     <div className='buttons'>
-                                        <p className="setRelevanceButton" data-tooltip-id="tooltipIrrelevant" data-tooltip-content="Relevant" onClick={() => handleSetRelevance(task.title, task.completed, task.deadline)}><TbNotes /></p>
+                                        <p className="setRelevanceButton" data-tooltip-id="tooltipIrrelevant" data-tooltip-content="Relevant" onClick={() => handleSetRelevance(task.title, task.completed)}><TbNotes /></p>
                                         <p className="deleteButton" data-tooltip-id="tooltipIrrelevant" data-tooltip-content="Delete" onClick={() => handleDelete(task.title)}><FaRegTrashAlt /></p>
                                     </div>
                                 </div>

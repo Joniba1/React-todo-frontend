@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 // Components
 import './TasksGraph.scss';
 import { Task, Day } from '../../types';
-import api from '../../api';
 import useTodoTasks from '../Tasks/TodoTasks/UseTodoTasks';
 
 const getCurrentMonth = () => new Date().toISOString().slice(0, 7);
@@ -13,11 +12,11 @@ const daysInMonth = (year: number, month: number) => {
     return new Date(year, month, 0).getDate();
 };
 
-const check: Task[] = [];
+const empty: Task[] = [];
 
 const TasksGraph = () => {
     const [selectedMonth, setSelectedMonth] = useState<string>(getCurrentMonth());
-    const { todoTasks } = useTodoTasks(check);
+    const { todoTasks } = useTodoTasks(empty);
     const [totalTasksCount, setTotalTasksCount] = useState<number>(todoTasks.length);
     const [days, setDays] = useState<Day[]>([]);
 

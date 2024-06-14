@@ -40,7 +40,7 @@ const TaskItem: React.FC<TaskProps> = ({
         setSelectedTaskDeadline(deadline);
     };
 
-    const handleDelete = async (title: string, deadline: string) => {
+    const handleDelete = async (title: string) => {
         await deleteTask(title);
         if (!task.relevance) {
             window.dispatchEvent(new Event('fetch-irrelevant-tasks'))
@@ -51,7 +51,7 @@ const TaskItem: React.FC<TaskProps> = ({
         }
     };
 
-    const handleSetRelevance = async (title: string, deadline: string) => {
+    const handleSetRelevance = async (title: string) => {
         await setRelevance(title);
         window.dispatchEvent(new Event('fetch-irrelevant-tasks'));
 
@@ -62,7 +62,7 @@ const TaskItem: React.FC<TaskProps> = ({
         }
     };
 
-    const handleSetCompleted = async (title: string, deadline: string) => {
+    const handleSetCompleted = async (title: string) => {
         await setCompleted(title);
         window.dispatchEvent(new Event('fetch-todo-tasks'))
         window.dispatchEvent(new Event('fetch-completed-tasks'));
@@ -79,9 +79,9 @@ const TaskItem: React.FC<TaskProps> = ({
                     </div>
                 )}
                 <div className='buttons'>
-                    <p className="setRelevanceButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title, task.deadline)}><TbNotesOff /></p>
-                    <p className="setCompletedButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Complete!" onClick={() => handleSetCompleted(task.title, task.deadline)}><GrCompliance /></p>
-                    <p className="deleteButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Delete" onClick={() => handleDelete(task.title, task.deadline)}><FaRegTrashAlt /></p>
+                    <p className="setRelevanceButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title)}><TbNotesOff /></p>
+                    <p className="setCompletedButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Complete!" onClick={() => handleSetCompleted(task.title)}><GrCompliance /></p>
+                    <p className="deleteButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Delete" onClick={() => handleDelete(task.title)}><FaRegTrashAlt /></p>
                 </div>
             </div>
         </>
