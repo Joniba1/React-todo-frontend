@@ -28,23 +28,23 @@
             display: flex;
             align-items: flex-end;
 
-            .day {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                align-items:  center;
-                justify-content: center;
-                margin: 0 0.3125em;
+            // .day {
+            //     position: relative;
+            //     display: flex;
+            //     flex-direction: column;
+            //     align-items:  center;
+            //     justify-content: center;
+            //     margin: 0 0.3125em;
 
-                .day-number {
-                    font-family: 'RedditSans';
-                }
+            //     .day-number {
+            //         font-family: 'RedditSans';
+            //     }
 
-                .bar {
-                    width: 1em;
-                    background-color: #47C3B5;
-                }
-            }
+            //     .bar {
+            //         width: 1em;
+            //         background-color: #47C3B5;
+            //     }
+            // }
 
             hr {
                 position: absolute;

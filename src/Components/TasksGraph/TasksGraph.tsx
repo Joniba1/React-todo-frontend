@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import './TasksGraph.scss';
 import { Task, Day } from '../../types';
 import useTodoTasks from '../Tasks/TodoTasks/UseTodoTasks';
+import DayBar from './Day/DayBar';
 
 const getCurrentMonth = () => new Date().toISOString().slice(0, 7);
 
@@ -83,15 +84,19 @@ const TasksGraph = () => {
                             const barHeight = tasksInDayCount > 0 ? `${(tasksInDayCount / totalTasksCount) * maxHeight}em` : '0%';
 
                             return (
-                                <div key={day} className="day">
-                                    <div
-                                        className='bar'
-                                        style={{ height: barHeight }}
-                                    ></div>
-
-                                    <div className="day-number">{day}</div>
-                                </div>
+                                <DayBar key={day} day={day} barHeight={barHeight} />
                             );
+
+                            // return (
+                            //     <div key={day} className="day">
+                            //         <div
+                            //             className='bar'
+                            //             style={{ height: barHeight }}
+                            //         ></div>
+
+                            //         <div className="day-number">{day}</div>
+                            //     </div>
+                            // );
                         })}
                     </div>
                 </div>
