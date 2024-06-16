@@ -1,12 +1,9 @@
-
-
-import './DayBar.scss';
+import './Days.scss';
 
 interface DayBarProps {
     day: number;
     barHeight: string;
 }
-
 
 const DayBar: React.FC<DayBarProps> = ({ day, barHeight }) => {
     return (

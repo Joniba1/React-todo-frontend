@@ -1,6 +1,7 @@
 import React from 'react';
 import { Task, Day } from '../../../types';
 import DayBar from './DayBar';
+import './Days.scss';
 
 interface DaysProps {
     days: Day[];
@@ -23,7 +24,7 @@ const Days: React.FC<DaysProps> = ({ days, totalTasksCount, selectedMonth, todoT
                         taskDate.getDate() === day
                     );
                 });
-                
+
                 const maxHeight = 4.5;
                 const barHeight = tasksInDayCount > 0 ? `${(tasksInDayCount / totalTasksCount) * maxHeight}em` : '0%';
 

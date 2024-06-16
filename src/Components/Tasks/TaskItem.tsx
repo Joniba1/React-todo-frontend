@@ -1,3 +1,4 @@
+import { Tooltip } from "react-tooltip";
 import { deleteTask } from "../../deleteTask";
 import { setRelevance, setCompleted } from "../../setState";
 import { Task } from '../../types'
@@ -79,11 +80,15 @@ const TaskItem: React.FC<TaskProps> = ({
                     </div>
                 )}
                 <div className='buttons'>
-                    <p className="setRelevanceButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title)}><TbNotesOff /></p>
-                    <p className="setCompletedButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Complete!" onClick={() => handleSetCompleted(task.title)}><GrCompliance /></p>
-                    <p className="deleteButton" data-tooltip-id="tooltipTodo" data-tooltip-content="Delete" onClick={() => handleDelete(task.title)}><FaRegTrashAlt /></p>
+                    <p className="setRelevanceButton" data-tooltip-id="toolTip" data-tooltip-content="Irrelevant" onClick={() => handleSetRelevance(task.title)}><TbNotesOff /></p>
+                    {task.relevance &&
+                        <p className="setCompletedButton" data-tooltip-id="toolTip" data-tooltip-content="Complete!" onClick={() => handleSetCompleted(task.title)}><GrCompliance /></p>
+                    }
+                    <p className="deleteButton" data-tooltip-id="toolTip" data-tooltip-content="Delete" onClick={() => handleDelete(task.title)}><FaRegTrashAlt /></p>
                 </div>
             </div>
+
+            <Tooltip id="toolTip" place="bottom" style={{ fontFamily: "Roboto", backgroundColor: "#5A5555" }} />
         </>
     )
 }

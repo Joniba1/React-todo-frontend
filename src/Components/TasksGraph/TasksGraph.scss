@@ -20,31 +20,4 @@
             }
         }
     }
-
-    .graph {
-        .days-container {
-            height: 6em;
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-
-            hr {
-                position: absolute;
-                border: none;
-                top: 0;
-                border-bottom: 2px dotted #B4B4B4;
-                width: 100%;
-            }
-
-            .gridline-1 {
-                border-bottom: 2px dotted #B4B4B4;
-                margin-top: 2.25em;
-            }
-    
-            .gridline-2 {
-                margin-top: 4.5em;
-                border-bottom: 2px solid #B4B4B4;
-            }
-        }
-    }
 }
