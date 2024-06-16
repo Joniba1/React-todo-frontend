@@ -1,16 +1,11 @@
-//Libraries
 import React, { useState } from 'react';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-
-//CSS
-import './Modal.scss';
 import { MdError } from 'react-icons/md';
-import api from '../../api';
+import '../Modal.scss';
+import useAddSubmitForm from './useAddSubmitForm';
+import ErrorMsg from '../../ErrorMsg/ErrorMsg';
 
 interface AddTaskProps {
   toggleModal: () => void;
-  modal: boolean;
 }
 
 const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
@@ -18,7 +13,8 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
   const [description, setDescription] = useState<string>('');
   const [date, setDate] = useState<string>('');
   const [time, setTime] = useState<string>('');
-  const [errorMessage, setErrorMessage] = useState<string>('');
+
+  const { handleSubmit, errorMsg } = useAddSubmitForm(toggleModal);
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const inputValue = event.target.value;
@@ -28,7 +24,7 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
   const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const inputValue = event.target.value;
     setDescription(inputValue);
-  }
+  };
 
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
@@ -40,46 +36,6 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
     setTime(inputValue);
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      const username = Cookies.get('username');
-      let formattedDeadline = null;
-
-      if (date && time) {
-        formattedDeadline = `${date} ${time}`;
-      } else if (date && !time) {
-        formattedDeadline = `${date} 00:00:00`;
-      }
-
-      const response = await api.post('/tasks/add', {
-        title: title,
-        deadline: formattedDeadline,
-        description: description,
-        username: username
-      });
-
-      if (response.status === 201) {
-        setTitle('');
-        setDate('');
-        setTime('');
-        toggleModal();
-        window.dispatchEvent(new Event('fetch-todo-tasks'));
-      }
-    } catch (error) {
-      if (axios.isAxiosError(error) && error.response) {
-        const { errorCode } = error.response.data;
-        if (errorCode === 'DUPLICATE_TASKS') {
-          setErrorMessage('Task title already exists!');
-        }
-        // else if (errorCode === 'EMPTY_TITLE') {
-        //   setErrorMessage('Tasks title can`t be empty');
-        // }
-      }
-    }
-  };
-
-
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === 'Enter') {
       event.preventDefault();
@@ -88,12 +44,7 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
 
   return (
     <>
-      {errorMessage && (
-        <div className='error-message error-message-right'>
-          <MdError />
-          <p>{errorMessage}</p>
-        </div>
-      )}
+      <ErrorMsg errorMsg={errorMsg} side={'right'}/>
 
       <div className="overlay" onClick={toggleModal}></div>
       <div className="modal">
@@ -101,7 +52,12 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
           <p>Add Task</p>
         </div>
         <div className="modal-content">
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit({ title, description, date, time });
+            }}
+          >
             <div className="textarea-wrapper">
               <textarea
                 className="title"
@@ -126,7 +82,7 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
               </div>
 
               <div className='modal-buttons'>
-                <button className="submit-task">Add task</button>
+                <button className="submit-task" type="submit">Add task</button>
                 <button className="nevermind" onClick={toggleModal}>Nevermind</button>
               </div>
             </div>
@@ -136,7 +92,5 @@ const AddTask: React.FC<AddTaskProps> = ({ toggleModal }) => {
     </>
   );
 };
-
-
 
 export default AddTask;

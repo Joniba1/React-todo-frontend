@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Cookies from 'js-cookie';
 
 //Components
-import AddTaskForm from '../Modals/AddTask';
+import AddTaskForm from '../Modals/Add/AddTask';
 
 //CSS
 import './Sidebar.scss';

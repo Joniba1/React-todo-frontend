@@ -7,7 +7,7 @@ import CompletedTasks from '../Tasks/CompletedTasks/CompletedTasks';
 import IrrelevantTasks from '../Tasks/IrrelevantTasks/IrrelevantTasks';
 import TasksGraph from '../TasksGraph/TasksGraph';
 import './ComponentsManager.scss';
-import EditTask from '../Modals/EditTask';
+import EditTask from '../Modals/Edit/EditTask';
 
 export interface TasksProps {
     searchedTasks: Task[];

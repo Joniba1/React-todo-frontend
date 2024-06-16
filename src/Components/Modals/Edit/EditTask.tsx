@@ -1,9 +1,8 @@
-
-import React, { useState } from 'react';
-import './Modal.scss';
-import api from '../../api';
-import axios from 'axios';
-import { MdError } from 'react-icons/md';
+import { MdError } from "react-icons/md";
+import useSubmitForm from "./useEditSubmitForm";
+import { useState } from "react";
+import '../Modal.scss';
+import ErrorMsg from "../../ErrorMsg/ErrorMsg";
 
 interface EditTaskFormProps {
     toggleModal: () => void;
@@ -16,11 +15,8 @@ interface EditTaskFormProps {
 }
 
 const EditTaskForm: React.FC<EditTaskFormProps> = ({ toggleModal, selectedTask }) => {
-
     const [newTitle, setNewTitle] = useState<string>(selectedTask.title);
     const [newDescription, setNewDescription] = useState<string>(selectedTask.description);
-    const [errorMessage, setErrorMessage] = useState<string>('');
-
 
     const [date, setDate] = useState<string>(() => {
         if (selectedTask.deadline) {
@@ -42,6 +38,16 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ toggleModal, selectedTask }
         }
     });
 
+
+    const { errorMsg, handleSubmit } = useSubmitForm(
+        selectedTask.title,
+        newTitle,
+        newDescription,
+        date,
+        time,
+        toggleModal
+    );
+
     const handleTitleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setNewTitle(event.target.value);
     };
@@ -59,49 +65,6 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ toggleModal, selectedTask }
     };
 
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        try {
-            let formattedDeadline = null;
-
-            if (date && time) {
-                formattedDeadline = `${date} ${time}`;
-            } else if (date && !time) {
-                formattedDeadline = `${date} 00:00:00`;
-            }
-
-            const response = await api.put('/tasks/edit', {
-                title: selectedTask.title,
-                updatedTask: {
-                    title: newTitle,
-                    deadline: formattedDeadline,
-                    description: newDescription
-                }
-            });
-
-            if (response.status === 200) {
-
-                toggleModal();
-                window.dispatchEvent(new Event('fetch-todo-tasks'));
-                window.dispatchEvent(new Event('fetch-irrelevant-tasks'));
-                window.dispatchEvent(new Event('fetch-completed-tasks'));
-            }
-        } catch (error) {
-            if (axios.isAxiosError(error) && error.response) {
-                const { errorCode } = error.response.data;
-                if (errorCode === 'DUPLICATE_TASKS') {
-                    setErrorMessage('Task title already exists!');
-                }
-                // else if (errorCode === 'EMPTY_TITLE') {
-                //   setErrorMessage('Tasks title can`t be empty');
-                // }
-            }
-        }
-    };
-    
-
-
-
     const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (event.key === 'Enter') {
             event.preventDefault();
@@ -110,12 +73,8 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ toggleModal, selectedTask }
 
     return (
         <>
-            {errorMessage && (
-                <div className='error-message-right'>
-                    <MdError />
-                    <p>{errorMessage}</p>
-                </div>
-            )}
+            <ErrorMsg errorMsg={errorMsg} side={'right'} />
+
             <div className="overlay" onClick={toggleModal}></div>
             <div className="modal edit-modal">
                 <div className='modal-title'>
