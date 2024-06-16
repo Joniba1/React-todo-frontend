@@ -25,7 +25,6 @@ const TaskItem: React.FC<TaskProps> = ({
     toggleModal
 }) => {
 
-
     const didDeadlinePass = (deadline: string) => {
         const currentDate = new Date();
         const deadlineDate = new Date(deadline);
