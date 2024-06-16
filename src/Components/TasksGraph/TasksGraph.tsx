@@ -86,17 +86,6 @@ const TasksGraph = () => {
                             return (
                                 <DayBar key={day} day={day} barHeight={barHeight} />
                             );
-
-                            // return (
-                            //     <div key={day} className="day">
-                            //         <div
-                            //             className='bar'
-                            //             style={{ height: barHeight }}
-                            //         ></div>
-
-                            //         <div className="day-number">{day}</div>
-                            //     </div>
-                            // );
                         })}
                     </div>
                 </div>
