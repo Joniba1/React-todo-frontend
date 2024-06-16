@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import api from "../../../api";
 
-const useSubmitForm = (
+const useEditSubmitForm = (
     selectedTaskTitle: string,
     newTitle: string,
     newDescription: string,
@@ -51,4 +51,4 @@ const useSubmitForm = (
     return { errorMsg, handleSubmit };
 };
 
-export default useSubmitForm;
+export default useEditSubmitForm;

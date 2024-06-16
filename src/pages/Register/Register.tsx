@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Register.scss';
 import { User } from '../../types';
-import { MdError } from 'react-icons/md';
 import Cookies from 'js-cookie';
 import api from '../../api';
 import ErrorMsg from '../../Components/ErrorMsg/ErrorMsg';

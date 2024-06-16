@@ -3,36 +3,31 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import api from '../../../api';
 
-interface AddTaskFormValues {
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-}
 
-interface AddTaskSubmit {
-  handleSubmit: (values: AddTaskFormValues) => Promise<void>;
-  errorMsg: string;
-}
-
-const useAddSubmitForm = (toggleModal: () => void): AddTaskSubmit => {
+const useAddSubmitForm = (
+  title: string,
+  description: string,
+  date: string,
+  time: string,
+  toggleModal: () => void) => {
   const [errorMsg, seterrorMsg] = useState<string>('');
 
-  const handleSubmit = async (values: AddTaskFormValues) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     try {
       const username = Cookies.get('username');
       let formattedDeadline = null;
 
-      if (values.date && values.time) {
-        formattedDeadline = `${values.date} ${values.time}`;
-      } else if (values.date && !values.time) {
-        formattedDeadline = `${values.date} 00:00:00`;
+      if (date && time) {
+        formattedDeadline = `${date} ${time}`;
+      } else if (date && !time) {
+        formattedDeadline = `${date} 00:00:00`;
       }
 
       const response = await api.post('/tasks/add', {
-        title: values.title,
+        title: title,
         deadline: formattedDeadline,
-        description: values.description,
+        description: description,
         username: username
       });
 

@@ -1,8 +1,8 @@
-import { MdError } from "react-icons/md";
-import useSubmitForm from "./useEditSubmitForm";
+import useEditSubmitForm from "./useEditSubmitForm";
 import { useState } from "react";
 import '../Modal.scss';
 import ErrorMsg from "../../ErrorMsg/ErrorMsg";
+import ModalContent from "../ModalContent";
 
 interface EditTaskFormProps {
     toggleModal: () => void;
@@ -15,8 +15,8 @@ interface EditTaskFormProps {
 }
 
 const EditTaskForm: React.FC<EditTaskFormProps> = ({ toggleModal, selectedTask }) => {
-    const [newTitle, setNewTitle] = useState<string>(selectedTask.title);
-    const [newDescription, setNewDescription] = useState<string>(selectedTask.description);
+    const [title, setTitle] = useState<string>(selectedTask.title);
+    const [description, setDescription] = useState<string>(selectedTask.description);
 
     const [date, setDate] = useState<string>(() => {
         if (selectedTask.deadline) {
@@ -38,38 +38,14 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ toggleModal, selectedTask }
         }
     });
 
-
-    const { errorMsg, handleSubmit } = useSubmitForm(
+    const { errorMsg, handleSubmit } = useEditSubmitForm(
         selectedTask.title,
-        newTitle,
-        newDescription,
+        title,
+        description,
         date,
         time,
         toggleModal
     );
-
-    const handleTitleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setNewTitle(event.target.value);
-    };
-
-    const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setNewDescription(event.target.value);
-    };
-
-    const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setDate(event.target.value);
-    };
-
-    const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTime(event.target.value);
-    };
-
-
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-        }
-    };
 
     return (
         <>
@@ -80,36 +56,18 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ toggleModal, selectedTask }
                 <div className='modal-title'>
                     <p>Edit Task</p>
                 </div>
-                <div className="modal-content">
-                    <form onSubmit={handleSubmit}>
-                        <div className="textarea-wrapper">
-                            <textarea
-                                className="title"
-                                placeholder="Task name"
-                                value={newTitle}
-                                onChange={handleTitleChange}
-                                onKeyDown={handleKeyDown}
-                                maxLength={130}
-                                required
-                            />
-                            <textarea
-                                value={newDescription}
-                                onChange={handleDescriptionChange}
-                                className="description"
-                                placeholder="Task description"
-                                maxLength={300}
-                            />
-                            <div className="date-picker">
-                                <input type="date" className='date' value={date} onChange={handleDateChange} />
-                                <input type="time" className='time' value={time} onChange={handleTimeChange} />
-                            </div>
-                            <div className='modal-buttons'>
-                                <button type="submit" className="submit-task">Save</button>
-                                <button type="button" className="nevermind" onClick={toggleModal}>Nevermind</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <ModalContent
+                    handleSubmit={handleSubmit}
+                    toggleModal={toggleModal}
+                    setTitle={setTitle}
+                    setDescription={setDescription}
+                    setDate={setDate}
+                    setTime={setTime}
+                    title={title}
+                    description={description}
+                    date={date}
+                    time={time}
+                />
             </div>
         </>
     );

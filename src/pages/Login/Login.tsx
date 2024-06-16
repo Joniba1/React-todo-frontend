@@ -2,9 +2,7 @@ import React, { useState, CSSProperties } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
-
 import './Login.scss';
-import { MdError } from 'react-icons/md';
 import api from '../../api';
 import ErrorMsg from '../../Components/ErrorMsg/ErrorMsg';
 
