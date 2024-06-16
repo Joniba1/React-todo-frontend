@@ -35,7 +35,6 @@ const useCompletedTasks = (searchedTasks: Task[]) => {
         };
     }, []);
 
-
     return { completedTasks };
 };
 

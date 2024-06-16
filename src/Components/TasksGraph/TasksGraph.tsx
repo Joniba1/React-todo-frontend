@@ -10,11 +10,11 @@ const daysInMonth = (year: number, month: number) => {
     return new Date(year, month, 0).getDate();
 };
 
-const empty: Task[] = [];
+const noSearchTasks: Task[] = [];
 
 const TasksGraph = () => {
     const [selectedMonth, setSelectedMonth] = useState<string>(getCurrentMonth());
-    const { todoTasks } = useTodoTasks(empty);
+    const { todoTasks } = useTodoTasks(noSearchTasks);
     const [totalTasksCount, setTotalTasksCount] = useState<number>(todoTasks.length);
     const [days, setDays] = useState<Day[]>([]);
     const [year, month] = selectedMonth.split('-').map(Number);

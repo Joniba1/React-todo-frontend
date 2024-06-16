@@ -38,8 +38,6 @@ const IrrelevantTasks: React.FC<TasksProps> = ({
                     </div>
                 </div>
             </div >
-
-
         </>
     );
 };

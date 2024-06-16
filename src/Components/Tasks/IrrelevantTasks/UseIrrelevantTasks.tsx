@@ -35,7 +35,6 @@ const useIrrelevantTasks = (searchedTasks: Task[]) => {
         };
     }, []);
 
-
     return { irrelevantTasks };
 };
 

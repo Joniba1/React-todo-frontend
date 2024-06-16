@@ -1,6 +1,6 @@
 import React from 'react';
 import { Task, Day } from '../../../types';
-import DayBar from './DayBar';
+import DayBar from './DayItem';
 import './Days.scss';
 
 interface DaysProps {
