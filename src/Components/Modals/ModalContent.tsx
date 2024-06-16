@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useFormHandlers from "./useFormHandlers";
 
 
@@ -17,10 +16,7 @@ interface ModalContentProps {
     time: string;
 }
 
-
-
 const ModalContent: React.FC<ModalContentProps> = ({ handleSubmit, toggleModal, setDate, setTime, setTitle, setDescription, title, description, date, time }) => {
-
     const {
         handleTitleChange,
         handleDescriptionChange,
@@ -68,12 +64,7 @@ const ModalContent: React.FC<ModalContentProps> = ({ handleSubmit, toggleModal, 
             </div>
 
         </>
-
     );
 }
-
-
-
-
 
 export default ModalContent;
