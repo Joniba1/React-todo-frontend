@@ -1,11 +1,8 @@
-// Libraries
 import { useState, useEffect } from 'react';
-
-// Components
 import './TasksGraph.scss';
 import { Task, Day } from '../../types';
 import useTodoTasks from '../Tasks/TodoTasks/UseTodoTasks';
-import DayBar from './Day/DayBar';
+import Days from './Days/Days';
 
 const getCurrentMonth = () => new Date().toISOString().slice(0, 7);
 
@@ -20,11 +17,7 @@ const TasksGraph = () => {
     const { todoTasks } = useTodoTasks(empty);
     const [totalTasksCount, setTotalTasksCount] = useState<number>(todoTasks.length);
     const [days, setDays] = useState<Day[]>([]);
-
-
-    useEffect(() => {
-        setTotalTasksCount(todoTasks.filter(task => task.deadline).length);
-    }, [todoTasks]);
+    const [year, month] = selectedMonth.split('-').map(Number);
 
     const updateGraph = (year: number, month: number) => {
         const totalDays = daysInMonth(year, month);
@@ -45,7 +38,9 @@ const TasksGraph = () => {
         setDays(data);
     };
 
-    const [year, month] = selectedMonth.split('-').map(Number);
+    useEffect(() => {
+        setTotalTasksCount(todoTasks.filter(task => task.deadline).length);
+    }, [todoTasks]);
 
     useEffect(() => {
         updateGraph(year, month);
@@ -69,24 +64,7 @@ const TasksGraph = () => {
                         <hr className='gridline-1' />
                         <hr className='gridline-2' />
 
-                        {days.map(({ day, tasksInDayCount }) => {
-
-                            todoTasks.find((task) => {
-                                const taskDate = new Date(task.deadline);
-                                return (
-                                    taskDate.getFullYear() === new Date(selectedMonth).getFullYear() &&
-                                    taskDate.getMonth() + 1 === new Date(selectedMonth).getMonth() + 1 &&
-                                    taskDate.getDate() === day
-                                );
-                            });
-
-                            const maxHeight = 4.5;
-                            const barHeight = tasksInDayCount > 0 ? `${(tasksInDayCount / totalTasksCount) * maxHeight}em` : '0%';
-
-                            return (
-                                <DayBar key={day} day={day} barHeight={barHeight} />
-                            );
-                        })}
+                        <Days days={days} totalTasksCount={totalTasksCount} selectedMonth={selectedMonth} todoTasks={todoTasks} />
                     </div>
                 </div>
             </div>
